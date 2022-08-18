@@ -2,6 +2,7 @@ import React from 'react'
 import {
   Box,
   Flex,
+  Img,
   Input,
   Stack,
   Link,
@@ -9,7 +10,6 @@ import {
   InputRightElement 
 } from '@chakra-ui/react'
 import { SearchIcon } from '@chakra-ui/icons'
-import { Img } from '@chakra-ui/react'
 import {AiOutlineShoppingCart, AiOutlineHistory} from 'react-icons/ai'
 
 import B2RISE_small from '../images/B2RISE_small.svg'
