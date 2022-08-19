@@ -45,12 +45,16 @@ export default function Navbar() {
         <Flex
         gap={5}
         >
+        <Link href='/cart'>
         <AiOutlineShoppingCart
             size={40}
             color='white'/>
+        </Link>
+        <Link href=''>
           <AiOutlineHistory
             size={40}
             color='white'/>
+        </Link>
         </Flex>
     </Flex>
   )
