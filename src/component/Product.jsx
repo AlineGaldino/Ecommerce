@@ -1,11 +1,20 @@
-import { Flex, Box, Img, Checkbox, Text, Button, Divider } from "@chakra-ui/react"
+import { 
+    Flex,
+    Box,
+    Img,
+    Checkbox,
+    Text,
+    Button,
+    Divider
+} from "@chakra-ui/react"
 
 import shirt from '../images/imaget-shirt.svg'
 
 export function Product({description, longDescription, price}) {
     return (
     <Flex margin='0px 400px 0px 400px' marginBottom='25px'>
-        <Checkbox defaultChecked paddingRight='25px'/>
+        <Checkbox
+        paddingRight='25px'/>
         <Img src={shirt} alt='t-shirt' paddingRight='25px'/>
         <Box>
             <Text fontSize='34px'>{description}</Text>
