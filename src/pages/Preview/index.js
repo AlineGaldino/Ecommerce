@@ -12,7 +12,7 @@ export default function Preview() {
         flexDirection='row'
         justifyContent='center'>
         <Button
-          bg='white'
+          variant='ghost'
           color='#170063'
           w='235px'
           h='53px'>
