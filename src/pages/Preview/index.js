@@ -1,6 +1,5 @@
 import Navbar from '../../component/Navbar'
 import {Products} from '../../component/Products'
-
 import { Flex, Button } from '@chakra-ui/react'
 
 export default function Preview() {
