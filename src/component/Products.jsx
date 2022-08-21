@@ -1,6 +1,15 @@
 import { useState, useEffect } from 'react';
-import { Product } from './Product'
 import { Box } from '@chakra-ui/react'
+import { 
+  Flex,
+  Img,
+  Checkbox,
+  Text,
+  Button,
+  Divider
+} from "@chakra-ui/react"
+
+import shirt from '../images/imaget-shirt.svg'
 
 export function Products() {
   const [products, setProducts] = useState([]);
@@ -23,14 +32,40 @@ export function Products() {
     }))();
   }, [])
 
+  const [cart, setCart] = useState([])
+
+  const addCart = (id, description, longDescription, price) => {
+
+      const cartProducts = {id, description, longDescription, price}
+      setCart([...cart, cartProducts])
+      sessionStorage.setItem('itens', JSON.stringify([...cart, cartProducts]))
+  }
+
   return (
     <Box>
       {products.map((product, index) => (
-        <Product
-          key={index}
-          description={product.description}
-          longDescription={product.longDescription}
-          price={product.price} />
+            <Flex margin='auto' w='70%' marginBottom='25px' key={index}>
+            <Checkbox
+            paddingRight='25px'/>
+            <Img src={shirt} alt='t-shirt' paddingRight='25px'/>
+            <Box>
+                <Text fontSize='34px'>{product.description}</Text>
+                <Text>{product.longDescription}</Text>
+                <Text as='em' textTransform='uppercase'>r$ {product.price}/1 un</Text>
+                <Divider />
+            </Box>
+            <Flex alignItems='center'>
+                <Button
+                onClick={() => addCart(product.id, product.description, product.longDescription, product.price)}
+                bg='#170063'
+                w='150px'
+                h='53px'
+                color='white'
+                boxShadow='3px 3px 5px gray'>
+                + Carrinho
+                </Button>
+            </Flex>
+        </Flex>
       ))}
     </Box>
   )

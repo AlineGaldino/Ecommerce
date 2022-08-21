@@ -8,11 +8,23 @@ import {
     Divider
 } from "@chakra-ui/react"
 
+import { useState } from "react"
+
 import shirt from '../images/imaget-shirt.svg'
 
 export function Product({description, longDescription, price}) {
+
+    const [cart, setCart] = useState({})
+
+    const addCart = (description, longDescription, price) => {
+
+        const cartProducts = {description, longDescription, price}
+        setCart([...cart, cartProducts])
+        console.log([...cart, cartProducts])
+        //sessionStorage.setItem('itens', JSON.stringify([...cart, cartProducts]))
+    }
     return (
-    <Flex margin='0px 400px 0px 400px' marginBottom='25px'>
+    <Flex margin='auto' w='70%' marginBottom='25px'>
         <Checkbox
         paddingRight='25px'/>
         <Img src={shirt} alt='t-shirt' paddingRight='25px'/>
@@ -24,6 +36,7 @@ export function Product({description, longDescription, price}) {
         </Box>
         <Flex alignItems='center'>
             <Button
+            onClick={() => addCart(description, longDescription, price)}
             bg='#170063'
             w='150px'
             h='53px'
